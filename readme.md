@@ -1,2 +1,2 @@
-# Food-App-React ![https://img.shields.io/badge/Food--App-React-blue](https://img.shields.io/badge/Food--App-React-blue)
+# Food-App-React ![https://img.shields.io/badge/Food--App-React-blue](https://img.shields.io/badge/Food--App-React-blue) [Live Link](https://app.netlify.com/sites/food-app-swiggy-api/settings/general)
 ## This is what i am building while learning React
