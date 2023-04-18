@@ -1,3 +1,7 @@
+body{
+    color: #282C3F;
+    font-family: Arial, Helvetica, sans-serif;
+}
 .navBar{
     width: 90vw;
     height: 10vh;
@@ -5,10 +9,16 @@
     justify-content: space-around;
     align-items: center;
 }
-.navBar ul > li, .navBar div{
-    cursor: pointer;
+.navBar ul > a{
+    text-decoration: none;
 }
-.navBar ul > li:hover{
+.navBar ul > a li, .navBar div{
+    cursor: pointer;
+    font-size:16px; 
+    color: #3d4152;
+    list-style-type: none;
+}
+.navBar ul > a li:hover{
     color: #ffa700;
 }
 .btn-container button{
@@ -18,6 +28,11 @@
     border:none;
     padding: 10px 15px;
     font-size: 16px;
+}
+.countRestaurant{
+    width:80vw;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
 }
 .restaurant__container{
     width:80vw;

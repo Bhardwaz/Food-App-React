@@ -6,7 +6,7 @@ const Body = () => {
      const noRestaurant = () => {
        return(
         <>
-        <ShimmirUI/>
+         <ShimmirUI/>
         <div className='noRestaurant'>
          <p>Sorry, no results found!😞 <br /> 
          Please try a different search term.
@@ -26,18 +26,20 @@ const Body = () => {
     const [searchedRestaurant, setSearchedRestaurants] = useState('')
 
     async function gettingAllRestaurants(){
-     const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6386438&lng=77.07206&page_type=DESKTOP_WEB_LISTING')
+     const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.6195574&lng=77.0549901&page_type=DESKTOP_WEB_LISTING')
      const json = await data?.json()
      setAllRestaurants(json.data.cards[2].data.data.cards)
      setFilteredRestaurants(json.data.cards[2].data.data.cards)
     }
+    
     useEffect(() => {
         gettingAllRestaurants()
     },[])
-    return filteredRestaurant.length === 0 ? <> {noRestaurant()} </> : ( <>
+    return ( 
+    <>
     <div className='searchBar'>
          <input className='searchInput'
-          type='text' placeholder='Search Restaurant Near You' value={searchedRestaurant} onChange={(e) => {setSearchedRestaurants(e.target.value)}} />
+          type='text' placeholder='Search Restaurant' value={searchedRestaurant} onChange={(e) => {setSearchedRestaurants(e.target.value)}} />
           <button onClick={() => {
             // need to filter the data 
             const data = filterData(searchedRestaurant, allRestaurant)
@@ -45,12 +47,18 @@ const Body = () => {
             setFilteredRestaurants(data)
           }}>Search</button>
     </div>
+    <div className='countRestaurant'>
+      <h1>{filteredRestaurant.length} Restarurant </h1>
+       </div>
     <div className='restaurant__container'>
       {
-        filteredRestaurant.map(restaurant => <RestaurantCard key={restaurant.data.key} restaurantData={restaurant}/>)
+        (
+        filteredRestaurant.length  === 0 ? noRestaurant() :
+        filteredRestaurant.map(restaurant => <RestaurantCard key={restaurant.data.id} restaurantData={restaurant} />)
+        )
       }
     </div>
     </>
-  )
+)
 }
 export default Body

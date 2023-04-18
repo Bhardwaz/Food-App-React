@@ -1,20 +1,31 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
-function LoggedInUser(){
-  return false
-}
 function Logo (){
   return(
-<span style={{fontSize:"30px", fontStyle:"italic", textDecoration:"underline", textDecorationColor:"#ffa700"}}> Swiggy </span>)
+<span style={{fontSize:"30px", fontStyle:"italic", fontWeight:"100", textDecoration:"underline", textDecorationColor:"#ffa700"}}> Swiggy </span>
+)
 }
 
 function MenuLinks() {
   return (   
        <ul style={{display:"flex", justifyContent:"space-around",alignItems:"center", width:"30vw", listStyle:"none",fontSize:"20px"}}>
-         <li>Offers</li>
-         <li>Help</li>
-         <li>Sign In</li>
-         <li>Cart</li>
+
+          <Link to="/">
+          <li>Home</li>   
+          </Link>
+          
+         <Link to="/help">
+          <li>Help</li>
+         </Link>
+
+         <Link to="/about">
+          <li>About</li>
+          </Link>
+          
+          <Link to="/cart">
+          <li>Cart</li>
+          </Link>
        </ul>
   )
 }
