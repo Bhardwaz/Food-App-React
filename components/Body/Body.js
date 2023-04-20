@@ -1,6 +1,7 @@
 import {Children, useEffect, useState} from 'react'
 import RestaurantCard from './RestaurantCard'
 import ShimmirUI from '../utils/ShimmirUI'
+import { Link } from 'react-router-dom'
 
 const Body = () => {     
      const noRestaurant = () => {
@@ -54,7 +55,7 @@ const Body = () => {
       {
         (
         filteredRestaurant.length  === 0 ? noRestaurant() :
-        filteredRestaurant.map(restaurant => <RestaurantCard key={restaurant.data.id} restaurantData={restaurant} />)
+        filteredRestaurant.map(restaurant => <Link to={"/restaurant/"+ restaurant.data.id} key={restaurant.data.id}><RestaurantCard restaurantData={restaurant} /></Link>)
         )
       }
     </div>

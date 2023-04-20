@@ -83,7 +83,6 @@ body{
 .searchBar button:active, .btn-container button:active{
     transform: translateY(.5);
 }
-
 .card-view{
     border: 1px solid transparent;
     cursor: pointer;

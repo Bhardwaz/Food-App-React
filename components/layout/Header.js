@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 
 function Logo (){
   return(
-<span style={{fontSize:"30px", fontStyle:"italic", fontWeight:"100", textDecoration:"underline", textDecorationColor:"#ffa700"}}> Swiggy </span>
+<Link to="/">
+<span style={{fontSize:"30px", fontStyle:"italic", fontWeight:"100", textDecoration:"underline", textDecorationColor:"#ffa700", cursor:"pointer"}}> Swiggy </span>
+</Link>
 )
 }
 
