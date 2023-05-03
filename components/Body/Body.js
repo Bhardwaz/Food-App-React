@@ -1,7 +1,9 @@
 import {Children, useEffect, useState} from 'react'
 import RestaurantCard from './RestaurantCard'
 import ShimmirUI from '../utils/ShimmirUI'
+import { filterData } from '../utils/helper'
 import { Link } from 'react-router-dom'
+import useOnline from '../utils/isOnline'
 
 const Body = () => {     
      const noRestaurant = () => {
@@ -15,11 +17,6 @@ const Body = () => {
         </div>
         </>
        )
-     }
-
-     function filterData (searchedRestaurant, allRestaurant){
-     searchedRestaurant = searchedRestaurant.toLowerCase()
-     return allRestaurant.filter(restaurant => restaurant.data.name.toLowerCase().includes(searchedRestaurant))
      }
 
     const [allRestaurant, setAllRestaurants] = useState([])
@@ -36,6 +33,11 @@ const Body = () => {
     useEffect(() => {
         gettingAllRestaurants()
     },[])
+
+    const isOnline = useOnline()
+    if(!isOnline){
+      return <div><h1>🔴 Seems you are offline</h1></div>
+    }
     return ( 
     <>
     <div className='searchBar'>

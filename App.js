@@ -2,13 +2,16 @@ import Header from "./components/layout/Header";
 import Body from "./components/Body/Body";
 import ReactDOM  from "react-dom/client";
 import Footer from "./components/Footer";
-import Help from "./components/Help";
 import Cart from "./components/Cart";
+import ShimmirUI from "./components/utils/ShimmirUI";
 import RestaurantMenu from "./components/RestaurantMenu";
 import { createBrowserRouter, RouterProvider, Outlet } from "react-router-dom";
-import About from "./components/About";
 import Error from "./components/Error";
 const root = ReactDOM.createRoot(document.getElementById('root'))
+import {lazy, Suspense} from "react";
+const Help = lazy(() => import ("./components/Help"));
+const About = lazy(() => import ("./components/About"));
+
 
 const AppLayout = () => {
     return(
@@ -27,11 +30,11 @@ const appRouter = createBrowserRouter([
       children:[
         {
         path:"/about",
-        element:<About />, 
+        element:<Suspense fallback={<ShimmirUI />}><About /></Suspense>, 
         },
         {
         path:"/help",
-        element:<Help />,
+        element:<Suspense fallback={<ShimmirUI />}><Help /></Suspense>,
         },
         {
         path:"/",
