@@ -6,7 +6,7 @@ export const RestaurantCard = (props) => {
 
     return ( 
         <div
-        className="p-5 w-[420px] flex flex-wrap cursor-pointer">
+        className="p-5 w-[395px] flex flex-wrap cursor-pointer">
         <div className="rounded overflow-hidden shadow-lg dark:shadow-gray-800">
           <img
             className="w-full"
