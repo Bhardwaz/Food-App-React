@@ -5,7 +5,7 @@ import useOnline from "../utils/isOnline";
 function Logo (){
   return(
 <Link to="/">
-<span style={{fontSize:"30px", fontStyle:"italic", fontWeight:"100", textDecoration:"underline", textDecorationColor:"#ffa700", cursor:"pointer"}}> Namasate Food </span>
+<span className="italic text-3xl cursor-pointer underline decoration-[#FFA700]"> Food Fire </span>
 </Link>
 )
 }
@@ -13,9 +13,9 @@ function Logo (){
 function MenuLinks() {
   const isOnline = useOnline()
   return (   
-       <ul style={{display:"flex", justifyContent:"space-around",alignItems:"center", width:"30vw", listStyle:"none",fontSize:"20px"}}>
+       <ul className="flex w-1/3 justify-around text-lg cursor-pointer">
           
-          <Link to="/">
+          <Link to="/"> 
           <li>Home</li>   
           </Link>
           
@@ -38,17 +38,21 @@ function MenuLinks() {
 function LogInOut (){
     const [isLoggedIn, setIsLoggedIn] = useState(false)  
     return(
-      <div className="btn-container">
-      {isLoggedIn ? (<button 
+      <div>
+      {isLoggedIn ? (<button className="rounded-md bg-[#FFA700] border px-3.5 py-1.5 text-base font-semibold leading-7"
       onClick={() => {setIsLoggedIn(false)}}>Log Out
       </button>) :
-      (<button onClick={() => {setIsLoggedIn(true)}}>Log In</button>)}
+      (<button
+        className="rounded-md bg-[#FFA700] border px-3.5 py-1.5 text-base font-semibold leading-7" onClick={() => {setIsLoggedIn(true)}}>
+        Login
+      </button>)}
+      
       </div>
     )
 }
 function Header(){
   return(
-    <nav className="navBar">
+    <nav className="flex justify-around pt-4 w-full">
       <Logo />
       <MenuLinks />
       <LogInOut />

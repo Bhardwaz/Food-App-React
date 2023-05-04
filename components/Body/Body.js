@@ -36,24 +36,25 @@ const Body = () => {
 
     const isOnline = useOnline()
     if(!isOnline){
-      return <div><h1>🔴 Seems you are offline</h1></div>
+      return <div className='h-[100vh] w-[100vw] flex justify-center items-center text-3xl'><h1>🔴 Seems you are offline</h1></div>
     }
     return ( 
     <>
-    <div className='searchBar'>
-         <input className='searchInput'
+    <div className='w-full'>
+         <input className='w-8/12 mx-[8.5%] mt-10 p-2 rounded-md text-lg border outline-[#FFA700]'
           type='text' placeholder='Search Restaurant' value={searchedRestaurant} onChange={(e) => {setSearchedRestaurants(e.target.value)}} />
-          <button onClick={() => {
+          <button className="rounded-md bg-[#FFA700] border px-3.5 py-1.5 text-base font-semibold leading-7"
+          onClick={() => {
             // need to filter the data 
             const data = filterData(searchedRestaurant, allRestaurant)
             // update the state 
             setFilteredRestaurants(data)
           }}>Search</button>
     </div>
-    <div className='countRestaurant'>
-      <h1>{filteredRestaurant.length} Restarurant </h1>
+    <div>
+      <h1 className='w-8/12 mx-[8.5%] pt-5 text-3xl'>{filteredRestaurant.length} Restarurant </h1>
        </div>
-    <div className='restaurant__container'>
+    <div className='w-9/12 mx-[8.5%] mt-4 flex flex-wrap'>
       {
         (
         filteredRestaurant.length  === 0 ? noRestaurant() :
